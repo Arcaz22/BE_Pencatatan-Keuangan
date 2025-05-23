@@ -1,0 +1,44 @@
+# Environment variables - Mengabaikan file konfigurasi yang berisi informasi sensitif
+.env
+.env.*
+!.env.example
+
+# Temporary files dari Air hot reload
+tmp/
+.air.toml
+
+# Go specific - File binary dan testing
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+/bin/
+/build/
+
+# Go workspace
+go.work
+go.work.sum
+
+# IDE specific - File konfigurasi IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific - File sistem operasi
+.DS_Store
+Thumbs.db
+
+# Swagger generated files - File yang digenerate oleh swagger
+docs/swagger.json
+docs/swagger.yaml
+
+# Log files
+*.log
+
+# Database files
+*.db
+*.sqlite
