@@ -1,4 +1,4 @@
-package user
+package routes
 
 import (
     "pencatatan_keuangan/internal/handler"
@@ -9,7 +9,7 @@ import (
     "gorm.io/gorm"
 )
 
-func SetupRoutes(r *gin.Engine, db *gorm.DB) {
+func SetupUserRoutes(r *gin.Engine, db *gorm.DB) {
     userRepo := repository.NewUserRepository(db)
     userSvc := user.NewUserService(userRepo)
     userHandler := handler.NewUserHandler(userSvc)

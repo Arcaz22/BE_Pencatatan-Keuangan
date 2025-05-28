@@ -22,7 +22,7 @@ func GenerateToken(userID uuid.UUID) (string, error) {
     secretKey := []byte(viper.GetString("JWT_SECRET_KEY"))
 
     claims := jwt.MapClaims{
-        "user_id": userID.String(), // Store UUID as string
+        "user_id": userID.String(),
         "exp":     time.Now().Add(time.Hour * 24).Unix(),
     }
 

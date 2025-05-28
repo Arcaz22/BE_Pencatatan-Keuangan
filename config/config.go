@@ -70,8 +70,7 @@ func RunMigrations(db *gorm.DB) error {
 
     err := db.AutoMigrate(
         &domain.User{},
-        // &domain.Transaction{},
-        // &domain.Category{},
+        &domain.Category{},
     )
 
     if err != nil {

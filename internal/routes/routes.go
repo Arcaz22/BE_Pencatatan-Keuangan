@@ -3,7 +3,6 @@ package routes
 import (
     "net/http"
     "pencatatan_keuangan/internal/middleware"
-    "pencatatan_keuangan/internal/routes/user"
 
     "github.com/gin-gonic/gin"
     swaggerFiles "github.com/swaggo/files"
@@ -19,10 +18,10 @@ func SetupRouter(db *gorm.DB) *gin.Engine {
     r.Use(middleware.ErrorHandler())
 
     r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-
     r.GET("/health", healthCheck)
 
-    user.SetupRoutes(r, db)
+    SetupUserRoutes(r, db)
+	SetupCategoryRoutes(r, db)
 
     return r
 }

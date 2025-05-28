@@ -89,3 +89,13 @@ func (h *UserHandler) Profile(c *gin.Context) {
 
 	response.Success(c, constant.MsgRetrivedUserSuccess, user)
 }
+
+// @Summary      Logout user
+// @Description  Logout user (frontend should remove token)
+// @Tags         users
+// @Produce      json
+// @Success      200 {object} map[string]string
+// @Router       /users/logout [post]
+func (h *UserHandler) Logout(c *gin.Context) {
+    response.Success(c, constant.MsgLogoutSuccess, nil)
+}

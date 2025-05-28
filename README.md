@@ -67,13 +67,10 @@ JWT_SECRET_KEY=your_secret_key # Generate with: openssl rand -hex 32
 
 ## 🧩 Roadmap
 
-- **Logout Endpoint**
 - **Income**
   - Create, update, delete, and retrieve income records
 - **Expense**
   - Create, update, delete, and retrieve expense records
-- **Category**
-  - Create, update, delete, and retrieve categories
 - **Budget**
   - Create, update, delete, and retrieve budgets
 - **Dashboard**
