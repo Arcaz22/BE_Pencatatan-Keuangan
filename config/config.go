@@ -71,6 +71,9 @@ func RunMigrations(db *gorm.DB) error {
     err := db.AutoMigrate(
         &domain.User{},
         &domain.Category{},
+		&domain.Income{},
+		&domain.Expense{},
+		&domain.Budget{},
     )
 
     if err != nil {

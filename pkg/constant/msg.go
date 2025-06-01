@@ -35,4 +35,9 @@ const (
 	MsgRetrievedCategoriesSuccess = "Berhasil mendapatkan daftar kategori"
 	MsgUpdateCategorySuccess = "Category updated successfully"
     MsgCategoryNotFound     = "Category not found"
+	MsgCreateIncomeSuccess = "Pendapatan berhasil dibuat"
+	MsgGetIncomesSuccess = "Berhasil mendapatkan daftar pendapatan"
+	MsgIncomeNotFound     = "Pemasukan not found"
+	MsgUpdateIncomeSuccess = "Pendapatan berhasil diperbarui"
+	MsgDeleteIncomeSuccess = "Pendapatan berhasil dihapus"
 )

@@ -22,6 +22,7 @@ func SetupRouter(db *gorm.DB) *gin.Engine {
 
     SetupUserRoutes(r, db)
 	SetupCategoryRoutes(r, db)
+	SetupIncomeRoutes(r, db)
 
     return r
 }

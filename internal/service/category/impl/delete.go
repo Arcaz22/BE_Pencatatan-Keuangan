@@ -8,7 +8,6 @@ import (
 )
 
 func DeleteCategory(repo repository.CategoryRepository, id string) error {
-    // Convert string ID to UUID
     uid, err := uuid.Parse(id)
     if err != nil {
         return utils.NewValidationError(constant.MsgInvalidInput, err)

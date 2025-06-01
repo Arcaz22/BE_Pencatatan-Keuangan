@@ -10,6 +10,10 @@ A modern, modular backend API for financial management applications, built with 
   Secure authentication with JWT.
 - **User Profile**
   Retrieve and manage user profile data.
+- **Category**
+  Category for income and expense.
+- **Income**
+  CRUD for income.
 - **Interactive API Docs**
   Swagger UI available at `/swagger/index.html`.
 - **Modular Architecture**
@@ -21,7 +25,7 @@ A modern, modular backend API for financial management applications, built with 
 
 1. **Clone the repository**
     ```sh
-    git clone <repo-url>
+    git clone https://github.com/Arcaz22/BE_Pencatatan-Keuangan.git
     cd pencatatan_kuangan/be
     ```
 
@@ -46,6 +50,9 @@ A modern, modular backend API for financial management applications, built with 
     ```
 
 5. **Access the API**
+    ```sh
+    swag init -g cmd/main.go
+    ```
     - Swagger Docs: [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html)
     - Health Check: [http://localhost:8080/health](http://localhost:8080/health)
 
@@ -55,6 +62,7 @@ A modern, modular backend API for financial management applications, built with 
 
 ```env
 SERVER_PORT=8080
+APP_ENV=development
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
@@ -67,8 +75,6 @@ JWT_SECRET_KEY=your_secret_key # Generate with: openssl rand -hex 32
 
 ## 🧩 Roadmap
 
-- **Income**
-  - Create, update, delete, and retrieve income records
 - **Expense**
   - Create, update, delete, and retrieve expense records
 - **Budget**

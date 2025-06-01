@@ -42,3 +42,17 @@ func AuthMiddleware() gin.HandlerFunc {
         c.Next()
     }
 }
+
+func ExtractUser() gin.HandlerFunc {
+    return func(c *gin.Context) {
+        userID, exists := c.Get("userID")
+        if !exists {
+            response.Unauthorized(c, "User not authenticated", "UNAUTHORIZED", nil)
+            c.Abort()
+            return
+        }
+
+        c.Set("user", userID)
+        c.Next()
+    }
+}
