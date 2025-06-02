@@ -40,4 +40,9 @@ const (
 	MsgIncomeNotFound     = "Pemasukan not found"
 	MsgUpdateIncomeSuccess = "Pendapatan berhasil diperbarui"
 	MsgDeleteIncomeSuccess = "Pendapatan berhasil dihapus"
+	MsgExpenseNotFound     = "Pengeluran not found"
+	MsgCreateExpenseSuccess = "Pengeluaran berhasil dibuat"
+	MsgGetExpensesSuccess = "Berhasil mendapatkan daftar pengeluaran"
+	MsgUpdateExpenseSuccess = "Pengeluaran berhasil diperbarui"
+	MsgDeleteExpenseSuccess = "Pengeluaran berhasil dihapus"
 )
