@@ -16,6 +16,8 @@ A modern, modular backend API for financial management applications, built with 
   CRUD for income.
 - **Expense**
   CRUD for expense.
+- **Budget**
+  CRUD for budget.
 - **Interactive API Docs**
   Swagger UI available at `/swagger/index.html`.
 - **Modular Architecture**
@@ -77,8 +79,6 @@ JWT_SECRET_KEY=your_secret_key # Generate with: openssl rand -hex 32
 
 ## 🧩 Roadmap
 
-- **Budget**
-  - Create, update, delete, and retrieve budgets
 - **Dashboard**
   - Financial summaries and analytics
 

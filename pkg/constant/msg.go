@@ -45,4 +45,9 @@ const (
 	MsgGetExpensesSuccess = "Berhasil mendapatkan daftar pengeluaran"
 	MsgUpdateExpenseSuccess = "Pengeluaran berhasil diperbarui"
 	MsgDeleteExpenseSuccess = "Pengeluaran berhasil dihapus"
+	MsgBudgetNotFound = "Anggaran tidak ditemukan"
+	MsgCreateBudgetSuccess = "Anggaran berhasil dibuat"
+	MsgGetBudgetsSuccess = "Berhasil mendapatkan daftar anggaran"
+	MsgUpdateBudgetSuccess = "Anggaran berhasil diperbarui"
+	MsgDeleteBudgetSuccess = "Anggaran berhasil dihapus"
 )
