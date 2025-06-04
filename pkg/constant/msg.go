@@ -50,4 +50,5 @@ const (
 	MsgGetBudgetsSuccess = "Berhasil mendapatkan daftar anggaran"
 	MsgUpdateBudgetSuccess = "Anggaran berhasil diperbarui"
 	MsgDeleteBudgetSuccess = "Anggaran berhasil dihapus"
+	MsgGetDashboardSuccess = "Berhasil mendapatkan data dashboard"
 )

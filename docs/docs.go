@@ -422,6 +422,45 @@ const docTemplate = `{
                 }
             }
         },
+        "/dashboard": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Get financial dashboard data including summaries, charts and monthly breakdowns",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dashboard"
+                ],
+                "summary": "Get dashboard data",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Year for filtering data (default: current year)",
+                        "name": "year",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Month for filtering data (optional, 1-12)",
+                        "name": "month",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dto.DashboardResponse"
+                        }
+                    }
+                }
+            }
+        },
         "/expenses/all": {
             "get": {
                 "security": [
@@ -953,6 +992,27 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "dto.BudgetComparison": {
+            "type": "object",
+            "properties": {
+                "actual_expense": {
+                    "type": "number"
+                },
+                "budget_amount": {
+                    "type": "number"
+                },
+                "difference": {
+                    "description": "positif = hemat, negatif = kelebihan",
+                    "type": "number"
+                },
+                "month": {
+                    "type": "integer"
+                },
+                "year": {
+                    "type": "integer"
+                }
+            }
+        },
         "dto.BudgetResponse": {
             "type": "object",
             "properties": {
@@ -983,6 +1043,23 @@ const docTemplate = `{
                 "is_active": {
                     "type": "boolean",
                     "example": true
+                }
+            }
+        },
+        "dto.CategoryDistribution": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "category_id": {
+                    "type": "string"
+                },
+                "category_name": {
+                    "type": "string"
+                },
+                "percentage": {
+                    "type": "number"
                 }
             }
         },
@@ -1120,6 +1197,38 @@ const docTemplate = `{
                 }
             }
         },
+        "dto.DashboardResponse": {
+            "type": "object",
+            "properties": {
+                "budget_comparison": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.BudgetComparison"
+                    }
+                },
+                "expense_distribution": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.CategoryDistribution"
+                    }
+                },
+                "monthly_expenses": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.MonthlyTotal"
+                    }
+                },
+                "monthly_incomes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.MonthlyTotal"
+                    }
+                },
+                "summary": {
+                    "$ref": "#/definitions/dto.Summary"
+                }
+            }
+        },
         "dto.ExpenseResponse": {
             "type": "object",
             "properties": {
@@ -1175,6 +1284,23 @@ const docTemplate = `{
                 "id": {
                     "type": "string",
                     "example": "550e8400-e29b-41d4-a716-446655440000"
+                }
+            }
+        },
+        "dto.MonthlyTotal": {
+            "type": "object",
+            "properties": {
+                "currency": {
+                    "type": "string"
+                },
+                "month": {
+                    "type": "integer"
+                },
+                "total": {
+                    "type": "number"
+                },
+                "year": {
+                    "type": "integer"
                 }
             }
         },
@@ -1251,6 +1377,23 @@ const docTemplate = `{
                 },
                 "user": {
                     "$ref": "#/definitions/dto.UserInfo"
+                }
+            }
+        },
+        "dto.Summary": {
+            "type": "object",
+            "properties": {
+                "remaining_budget": {
+                    "type": "number"
+                },
+                "total_budget": {
+                    "type": "number"
+                },
+                "total_expense": {
+                    "type": "number"
+                },
+                "total_income": {
+                    "type": "number"
                 }
             }
         },
