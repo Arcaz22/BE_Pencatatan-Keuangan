@@ -19,25 +19,20 @@ func GetAllCategories(
 ) ([]dto.CategoryResponse, int, error) {
     query := repo.GetQueryBuilder()
 
-    // Apply filters and search
-    query = response.ApplyFilters(query, params, searchableFields)
+	query = utils.ApplyCaseInsensitiveFilters(query, params, searchableFields)
 
-    // Count total before pagination
     total, err := response.CountTotalRecords(query, &domain.Category{})
     if err != nil {
         return nil, 0, utils.NewSystemError(constant.MsgInternalError, err)
     }
 
-    // Apply pagination
     query = response.ApplyPaginationToQuery(query, params)
 
-    // Execute query
     var categories []domain.Category
     if err := query.Find(&categories).Error; err != nil {
         return nil, 0, utils.NewSystemError(constant.MsgInternalError, err)
     }
 
-    // Map to DTOs
     var categoriesResponse []dto.CategoryResponse
     for _, category := range categories {
         categoriesResponse = append(categoriesResponse, categoryMapper.ToCategoryResponse(&category))

@@ -79,9 +79,85 @@ JWT_SECRET_KEY=your_secret_key # Generate with: openssl rand -hex 32
 
 ---
 
+## 🔨 Build Instructions
+
+### Build for Different Platforms
+
+1. **For Linux**
+    ```sh
+    go build -o financial-api cmd/main.go
+    ```
+
+2. **For Windows**
+    ```sh
+    GOOS=windows GOARCH=amd64 go build -o financial-api.exe cmd/main.go
+    ```
+
+3. **For MacOS**
+    ```sh
+    GOOS=darwin GOARCH=amd64 go build -o financial-api-mac cmd/main.go
+    ```
+
+### Running the Built Application
+
+1. **Prepare the environment**
+   - Create `.env` file in the same directory as the executable
+   - Setup PostgreSQL database
+   - Ensure database credentials match `.env` configuration
+
+2. **Run the executable**
+   ```sh
+   # For Linux/MacOS
+   ./financial-api
+
+   # For Windows
+   financial-api.exe
+   ```
+
+### Database Migration
+
+1. **Automatic Migration**
+   The application will automatically run migrations when started for the first time.
+   Just run the executable:
+   ```sh
+   # For Windows
+   financial-api.exe
+
+   # For Linux/MacOS
+   ./financial-api
+   ```
+
+2. **Manual Migration (Optional)**
+   If you need to run migrations manually:
+   ```sh
+   # For Windows
+   financial-api.exe migrate
+
+   # For Linux/MacOS
+   ./financial-api migrate
+   ```
+
+3. **Database Structure**
+   The following tables will be created automatically:
+   - users
+   - categories
+   - incomes
+   - expenses
+   - budgets
+
+4. **Verify Migration**
+   Check your database to confirm tables are created:
+   ```sql
+   \dt  -- For PostgreSQL command line
+   ```
+
+⚠️ **Note**: Make sure your database credentials in `.env` are correct before running the application.
+
+---
+
 ## 🧩 Roadmap
 
-- ** Webhook Whatsapp **
+- **Webhook Whatsapp**
 
 ---
 
